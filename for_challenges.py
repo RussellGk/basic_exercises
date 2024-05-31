@@ -2,8 +2,14 @@
 # Необходимо вывести имена всех учеников из списка с новой строки
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
-# ???
 
+
+def print_names(names):
+    for name in names:
+        print(name)
+
+
+print_names(names)
 
 # Задание 2
 # Необходимо вывести имена всех учеников из списка, рядом с именем показать количество букв в нём
@@ -12,8 +18,14 @@ names = ['Оля', 'Петя', 'Вася', 'Маша']
 # Петя: 4
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
-# ???
 
+
+def print_names_with_len(names):
+    for name in names:
+        print(f"{name}: {len(name)}")
+
+
+print_names_with_len(names)
 
 # Задание 3
 # Необходимо вывести имена всех учеников из списка, рядом с именем вывести пол ученика
@@ -25,8 +37,18 @@ is_male = {
     'Маша': False,
 }
 names = ['Оля', 'Петя', 'Вася', 'Маша']
-# ???
 
+
+def print_name_with_gender(names):
+    for name in names:
+        if is_male.get(name):
+            gender = "мужской"
+        else:
+            gender = "женский"
+        print(f"{name}: {gender}")
+
+
+print_name_with_gender(names)
 
 # Задание 4
 # Даны группу учеников. Нужно вывести количество групп и для каждой группы – количество учеников в ней
@@ -40,8 +62,14 @@ groups = [
     ['Вася', 'Маша', 'Саша', 'Женя'],
     ['Оля', 'Петя', 'Гриша'],
 ]
-# ???
 
+
+def print_groups_with_student(groups):
+    for group in groups:
+        print(f"Группа {groups.index(group) + 1}: {len(group)} ученика")
+
+
+print_groups_with_student(groups)
 
 # Задание 5
 # Для каждой пары учеников нужно с новой строки перечислить учеников, которые в неё входят
@@ -54,4 +82,15 @@ groups = [
     ['Оля', 'Петя', 'Гриша'],
     ['Вася', 'Маша', 'Саша', 'Женя'],
 ]
-# ???
+
+
+def print_groups_with_names(groups):
+    for group in groups:
+        print(f"Группа {groups.index(group) + 1}: {get_names_from_group(group)}")
+
+
+def get_names_from_group(group):
+    return ", ".join(str(name) for name in group)
+
+
+print_groups_with_names(groups)
